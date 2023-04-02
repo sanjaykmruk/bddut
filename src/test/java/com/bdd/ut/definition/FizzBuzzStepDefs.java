@@ -17,8 +17,19 @@ public class FizzBuzzStepDefs {
         result = fb.playFB(input);
     }
 
-    @Then("^return value is Fizz$")
-    public void returnValueIsFizz() {
-        assertEquals("Fizz", result);
+
+    @When("user enter number {int}")
+    public void userEnterNumber(int input) {
+        FizzBuzz fb = new FizzBuzz();
+
+//        result = fb.playFB(Integer.parseInt(input));
+        result = fb.playFB(input);
     }
+
+
+    @Then("return value is {string}")
+    public void returnValueIs(String output) {
+        assertEquals(output, result);
+    }
+
 }
