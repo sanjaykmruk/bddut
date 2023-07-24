@@ -1,7 +1,9 @@
 name: Squash commits on merge
 on:
-   merge_group:
-       types: [checks_requested]
+  push:
+    branches:
+      - 'main'
+
 jobs:
   squash:
     runs-on: ubuntu-latest
