@@ -1,0 +1,17 @@
+name: Squash commits on merge
+on:
+  pull_request:
+    types:
+      - merged
+jobs:
+  squash:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the branch
+        uses: actions/checkout@v2
+      - name: Squash commits
+        run: |
+          git rebase -i HEAD~n
+      - name: Merge the branch
+        run: |
+          git merge main
